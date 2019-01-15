@@ -1,0 +1,14 @@
+D:\Projects\WPF\WpfSnake\WpfSnake\bin\Debug\WpfSnake.exe.config
+D:\Projects\WPF\WpfSnake\WpfSnake\bin\Debug\WpfSnake.exe
+D:\Projects\WPF\WpfSnake\WpfSnake\bin\Debug\WpfSnake.pdb
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\WpfSnake.csprojResolveAssemblyReference.cache
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\MainWindow.g.cs
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\App.g.cs
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\WpfSnake_MarkupCompile.cache
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\MainWindow.baml
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\WpfSnake.g.resources
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\WpfSnake.Properties.Resources.resources
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\WpfSnake.csproj.GenerateResource.Cache
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\WpfSnake.exe
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\WpfSnake.pdb
+D:\Projects\WPF\WpfSnake\WpfSnake\obj\Debug\WpfSnake_MarkupCompile.lref
