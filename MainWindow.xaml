@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfSnake"
         mc:Ignorable="d"
         Title="Snake" Height="350" Width="525" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Canvas x:Name="CanvasMap">
+    <Canvas x:Name="CanvasMap" Background="LightGray">
         
     </Canvas>
 </Window>

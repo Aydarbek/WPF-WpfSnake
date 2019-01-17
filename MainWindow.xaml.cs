@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
@@ -28,6 +20,9 @@ namespace WpfSnake
         Point snake;
         int width, height;
         int stepx, stepy;
+        int points = 0;
+        int total = 100;
+        int length = 1;
 
         public MainWindow()
         {
@@ -37,7 +32,7 @@ namespace WpfSnake
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             width = (int)CanvasMap.ActualWidth;
-            height = (int)CanvasMap.ActualHeight;
+            height = (int)CanvasMap.ActualHeight;            
             random = new Random();
             timer = new DispatcherTimer();
             timer.Tick += GameRun;
@@ -67,15 +62,41 @@ namespace WpfSnake
         private void GameRun(object sender, EventArgs e)
         {
             MoveSnake();
+            if (OutOfScreen(snake))
+                GameOver();
+            if (IsCross(snake, food))
+                if (++points == total)
+                {
+                    CanvasMap.Children.RemoveAt(0);
+                    GameWin();
+                }
+                else
+                {
+                    AddFood();
+                }
+        }
+
+        
+
+        private void GameWin()
+        {
+            MessageBox.Show("You win! Congratulations!", "Winner");
+            Close();
+        }
+
+        private void GameOver()
+        {
+            MessageBox.Show("You loose");
+            Close();
         }
 
         private void MoveSnake()
         {
-            snake.X += stepx;
-            snake.Y += stepy;
+            snake.X += stepx * 3;
+            snake.Y += stepy * 3;
             Ellipse ellipse = CreateEllipse(snake, Brushes.Red);
-            if (CanvasMap.Children.Count > 1)
-                CanvasMap.Children.RemoveAt(1);
+            if (CanvasMap.Children.Count > length)
+                CanvasMap.Children.RemoveAt(length);
             CanvasMap.Children.Insert(1, ellipse);
 
         }
@@ -87,6 +108,7 @@ namespace WpfSnake
             if (CanvasMap.Children.Count > 0)
                 CanvasMap.Children.RemoveAt(0);
             CanvasMap.Children.Insert(0, ellipse);
+            length++;
         }
 
         private Ellipse CreateEllipse(Point point, Brush brush)
@@ -98,6 +120,18 @@ namespace WpfSnake
             Canvas.SetLeft(ellipse, point.X);
             Canvas.SetBottom(ellipse, point.Y);
             return ellipse;
+        }
+
+        private bool IsCross(Point A, Point B)
+        {
+            return (Math.Abs(A.X - B.X)) < SIZE &&
+                   (Math.Abs(A.Y - B.Y)) < SIZE;
+        }
+
+        private bool OutOfScreen (Point A)
+        {
+            return A.X < 0 || A.X > width - SIZE ||
+                   A.Y < 0 || A.Y > height - SIZE;
 
         }
     }
